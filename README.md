@@ -5,4 +5,4 @@ To start drawing please choose a color first and then press anywhere on canvas. 
 
 # Preview
 
-[Live demo](https://cosm33n.github.io/etch_a_sketch_private/)
+[Live demo](https://cosm33n.github.io/Etch-A-Sketch-TOP/)
