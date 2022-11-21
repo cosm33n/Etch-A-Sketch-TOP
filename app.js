@@ -8,19 +8,25 @@ body.appendChild(grid)
 // Buttons selectors
 const blackColor = document.getElementById('black')
 const rainbowColor = document.getElementById('rainbow')
+const eraser = document.getElementById('eraser')
 const clear = document.getElementById('clear')
 const pickColor = document.getElementById('color')
 const slider = document.querySelector('#size-range')
 const labelSlider = document.getElementById('label-size-range')
+const cellBorderBtn = document.getElementById('cell-border-btn')
 
 // Color default value
 let color = ''
+
+let cellBorder = true
 
 // Pen default value
 let penDown = false
 createGrid()
 
 // Event listeners
+cellBorderBtn.addEventListener('click', toggleCellBorder)
+
 const cells = document.querySelectorAll('.cell')
 cells.forEach(cell => {
   cell.addEventListener('mouseenter', draw)
@@ -36,6 +42,7 @@ slider.addEventListener('mousemove', () => {
 })
 blackColor.addEventListener('click', setBlack)
 rainbowColor.addEventListener('click', setRainbow)
+eraser.addEventListener('click', erase)
 
 clear.addEventListener('click', () => {
   const cells = document.querySelectorAll('.cell')
@@ -73,6 +80,9 @@ function draw(e) {
       case 'black':
         e.target.style.backgroundColor = 'black'
         break
+      case 'white':
+        e.target.style.backgroundColor = 'white'
+        break
       case 'rainbow':
         e.target.style.backgroundColor = `rgb(${Math.random() * 255},${
           Math.random() * 255
@@ -85,6 +95,13 @@ function draw(e) {
   }
 }
 
+function toggleCellBorder() {
+  const cells = document.querySelectorAll('.cell')
+  cells.forEach(cell => {
+    cell.classList.toggle('border-none')
+  })
+}
+
 function togglePen() {
   penDown = penDown === false ? true : false
 }
@@ -93,6 +110,9 @@ function setBlack() {
 }
 function setRainbow() {
   color = 'rainbow'
+}
+function erase() {
+  color = 'white'
 }
 
 function clearGrid() {

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 * {
   box-sizing: border-box;
+  /* outline: 1px solid green; */
 }
 
 body {
@@ -11,12 +12,17 @@ body {
   height: 100vh;
   margin: 0;
   flex-direction: column;
-  /* background-color: #333; */
+  background-color: #202124;
 }
 h1 {
-    font-size: 64px;
-    /* outline: 1px solid blue; */
-    margin-top: 0;
+  font-size: 64px;
+  margin: 0;
+  color: white;
+}
+label {
+  color: white;
+  width: 3ch;
+  font-weight: bold;
 }
 
 .container {
@@ -28,5 +34,63 @@ h1 {
 
 .cell {
   border: 1px solid lightgray;
+  background-color: white;
 }
 
+.cell.border-none {
+  border: none;
+}
+
+.buttons {
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px 20px;
+  background-color: steelblue;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  margin: 5px;
+  font-size: 16px;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  transition: all 0.5s;
+}
+
+.btn:active {
+  transform: scale(0.9);
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  width: 200px;
+  height: 5px;
+  background: steelblue;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: white;
+  cursor: ew-resize;
+}
+
+input[type='color'] {
+  -webkit-appearance: none;
+  border: none;
+  height: 45px;
+  width: 90px;
+  background-color: steelblue;
+  padding: 5px 15px;
+  border-radius: 10px;
+  margin: 10px 20px;
+}
